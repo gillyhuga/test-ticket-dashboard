@@ -1,11 +1,22 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import './i18n.js'
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './styles/index.css';
+import { Toaster } from 'react-hot-toast';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from './lib/context/ThemeContext.jsx';
+import { AuthProvider } from './lib/context/AuthContext.jsx';
+import './i18n.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <BrowserRouter>
+        <Toaster
+            position="top-center"
+            reverseOrder={false}
+        />
+        <ThemeProvider>
+            <AuthProvider>
+                <App />
+            </AuthProvider>
+        </ThemeProvider>
+    </BrowserRouter>,
+);

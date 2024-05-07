@@ -1,5 +1,16 @@
 {
-  "translation": {
-    "headerTitle": "My Header Title"
+    "translation": {
+      "title": "Ticket Dashboard",
+      "toast": {
+        "invalidCredentials": "Invalid email or password",
+        "loginSuccesed": "Login Successful"
+      },
+      "pageLogin": {
+        "email": "Email",
+        "password": "Password",
+        "login": "Login",
+        "passwordError": "Password must be at least 8 characters long."
+      }
+    }
   }
-}
+  

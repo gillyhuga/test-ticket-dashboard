@@ -1,15 +1,12 @@
-import { useTranslation } from "react-i18next";
+import { Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
 
 function App() {
-  const { t } = useTranslation();
-
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-        {t("headerTitle")}
-      </h1>
-    </>
-  );
+    return (
+        <Routes>
+            <Route path="/" element={<LoginPage />} />
+        </Routes>
+    );
 }
 
 export default App;

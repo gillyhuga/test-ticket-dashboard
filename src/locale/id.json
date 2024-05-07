@@ -1,0 +1,11 @@
+{
+    "translation": {
+      "title": "Ticket Dashboard",
+      "pageLogin": {
+          "email": "Email",
+          "password": "Kata Sandi",
+          "login": "Masuk",
+          "passwordError":"Kata sandi harus terdiri dari minimal 8 karakter."
+      }
+    }
+  }
