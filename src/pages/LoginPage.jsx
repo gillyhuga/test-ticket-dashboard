@@ -21,7 +21,7 @@ const LoginPage = () => {
     useEffect(() => {
         if (user) {
             if (user.role === 'admin') {
-                navigate('/dashboard');
+                navigate('/overview');
             } else {
                 navigate('/ticket/create');
             }

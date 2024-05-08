@@ -10,6 +10,10 @@
         "password": "Password",
         "login": "Login",
         "passwordError": "Password must be at least 8 characters long."
+      },
+      "sidebar": {
+        "ticket": "Ticket",
+        "overview": "Overview"
       }
     }
   }
