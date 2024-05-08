@@ -9,6 +9,26 @@
 <p>
 
 ### Built With
+Deployment Link : https://ticket-dashboard.gillyhuga.com/
+
+Demo Account : 
+- Role Admin
+  ```
+     admin@example.com
+  ```
+  ```
+     password123
+  ```
+- Role Guest
+  ```
+     guest@example.com
+  ```
+  ```
+     password123
+  ```
+
+
+### Built With
 - [React.js ^18.2.0](https://react.dev/)
 - [Vite ^4.2.1](https://vitejs.dev/)
 - [Daisy UI ^4.10.5](https://daisyui.com/)
