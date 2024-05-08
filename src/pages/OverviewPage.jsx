@@ -4,15 +4,18 @@ import StatisticCard from '../components/StatisticCard';
 import StatisticItem from '../components/StatisticItem';
 import TaskCard from '../components/TaskCard';
 import UnresolvedTicketCard from '../components/UnresolvedTicketCard';
-import { getStatistic, getTasks, getTicketGraph } from '../lib/api/overview';
+import { getStatistic, getTasks, getTicketGraph, getTotalUnresolvedTicket } from '../lib/api/overview';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 
 const OverviewPage = () => {
     const todayDateTime = moment().format('DD MMMM YYYY, hh:mm A');
     const [statisticOverview, setStatisticOverview] = useState(null);
     const [ticketGraphData, setTicketGraphData] = useState(null);
     const [taskData, setTaskData] = useState(null);
+    const [unresolvedTicket, setUnresolvedTicket] = useState(null);
     const [loading, setLoading] = useState(true);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -25,6 +28,9 @@ const OverviewPage = () => {
 
                 const taskData = await getTasks();
                 setTaskData(taskData);
+
+                const unresolvedTicket = await getTotalUnresolvedTicket();
+                setUnresolvedTicket(unresolvedTicket);
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -34,25 +40,18 @@ const OverviewPage = () => {
         fetchData();
     }, []);
 
-    const unresolvedData = [
-        { label: 'Waiting on Feature Request', value: 4238 },
-        { label: 'Awaiting Customer Response', value: 1005 },
-        { label: 'Awaiting Developer Fix', value: 914 },
-        { label: 'Pending', value: 281 },
-    ];
-
     if (loading) {
         return <div>Loading...</div>;
     }
-    
+
     return (
         <div className='p-6'>
-            <p className='text-3xl font-semibold'>Overview</p>
+            <p className='text-3xl font-semibold'>{t('overview.title')}</p>
             <StatisticCard data={statisticOverview} />
             <div className="card lg:card-side shadow-md bg-base-100  flex flex-col justify-center items-center space-y-8 ">
                 <div className="card-body flex-grow justify-between">
                     <div>
-                        <h2 className="card-title mb-4">Today&apos;s Trends</h2>
+                        <h2 className="card-title mb-4">{t('overview.trendTitle')}</h2>
                         <p className="text-sm text-gray-500">as of {todayDateTime}</p>
                     </div>
                     <SplineChart data={ticketGraphData} />
@@ -63,7 +62,7 @@ const OverviewPage = () => {
                 <UnresolvedTicketCard
                     title="Unresolved tickets"
                     group="Support"
-                    data={unresolvedData} />
+                    data={unresolvedTicket} />
                 <TaskCard
                     title="Tasks"
                     data={taskData} />

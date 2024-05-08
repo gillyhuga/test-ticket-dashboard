@@ -1,17 +1,15 @@
 import { Link, useNavigate } from 'react-router-dom';
 import {
-    MdOutlineBrightness2,
-    MdOutlineWbSunny,
     MdOutlineExitToApp
 } from 'react-icons/md';
 import { useAuth } from '../lib/context/AuthContext';
-import { useTheme } from '../lib/context/ThemeContext';
 import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
+import ThemeToggle from './ThemeToggle';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Navbar = () => {
     const navigate = useNavigate();
-    const { theme, toggleTheme } = useTheme();
     const { user, logout } = useAuth();
     const { t } = useTranslation();
 
@@ -22,7 +20,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className={`navbar ${theme === 'dark' ? 'bg-slate-800 text-white' : 'bg-white text-black'}`}>
+        <div className="navbar">
             <div className="navbar-start">
                 <label
                     htmlFor="my-drawer-2"
@@ -48,18 +46,13 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="navbar-end">
-                {/* <button className="btn btn-square hidden sm:flex">
-                    <MdOutlinet size={25} />
-                </button> */}
-                <button className="btn btn-square mx-4 hidden sm:flex" onClick={toggleTheme}>
-                    {theme === 'dark' ? (
-                        <MdOutlineWbSunny size={25} />
-                    ) : (
-                        <MdOutlineBrightness2 size={25} />
-                    )}
-                </button>
+                <div className="hidden lg:flex items-cente">
+                    <LanguageSwitcher/>
+                    <ThemeToggle/>
+                </div>
+               
                 {user && (
-                    <div className="dropdown dropdown-end">
+                    <div className="dropdown dropdown-end px-4">
                         <div
                             className="avatar placeholder"
                             tabIndex={0}
@@ -71,29 +64,11 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className={`dropdown-content z-[1] menu p-2 shadow-xl rounded-box w-52 mt-4 ${theme === 'dark' ? 'bg-accent-content' : 'bg-white '}`}
+                            className={'dropdown-content bg-white z-[1] menu p-2 shadow-xl rounded-box w-52 mt-4 '}
                         >
-                            {/* <li className="sm:hidden rounded-lg mb-1">
-                                <a
-                                    className="dropdown-link flex items-center"
-                                    onClick={toggleLanguage}
-                                >
-                                    <MdOutlinet size={20} className="mr-2" />
-                                    {t('navbar.t')}
-                                </a>
-                            </li> */}
-                            <li className="sm:hidden rounded-lg mb-1">
-                                <a
-                                    className="dropdown-link flex items-center"
-                                    onClick={toggleTheme}
-                                >
-                                    {theme === 'dark' ? (
-                                        <MdOutlineWbSunny size={20} className="mr-2" />
-                                    ) : (
-                                        <MdOutlineBrightness2 size={20} className="mr-2" />
-                                    )}
-                                    {t('navbar.theme')}
-                                </a>
+                            <li className="sm:hidden items-center rounded-lg mb-1">
+                                <LanguageSwitcher/>
+                                <ThemeToggle/>
                             </li>
                             <li>
                                 <a

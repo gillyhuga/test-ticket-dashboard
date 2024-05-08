@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useAuth } from '../lib/context/AuthContext';
-import { useTheme } from '../lib/context/ThemeContext';
-import ThemeToggle from '../components/ThemeToggle';
 import LoginForm from '../components/LoginForm';
 import LoginHeader from '../components/LoginHeader';
 import { useTranslation } from 'react-i18next';
@@ -13,7 +11,6 @@ import { data } from '../utils/static-data';
 
 const LoginPage = () => {
     const navigate = useNavigate();
-    const { theme } = useTheme();
     const { t } = useTranslation();
     const { user, signIn } = useAuth();
     
@@ -40,9 +37,8 @@ const LoginPage = () => {
     };
 
     return (
-        <div className={`flex items-center justify-center min-h-screen ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}>
+        <div data-theme="light" className={'flex items-center justify-center min-h-screen '}>
             <div className="bg-base-100 p-4 rounded-xl shadow-2xl max-w-sm w-full">
-                <ThemeToggle />
                 <LoginHeader title={t('title')} />
                 <LoginForm
                     onLogin={handleLogin}

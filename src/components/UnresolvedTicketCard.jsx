@@ -1,8 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import Divider from './Divider';
+import { useTranslation } from 'react-i18next';
 
 const UnresolvedTicketCard = ({ title, group, data }) => {
+    const { t } = useTranslation();
     return (
         <div className="card bg-base-100 shadow-md">
             <div className="card-body">
@@ -15,15 +16,26 @@ const UnresolvedTicketCard = ({ title, group, data }) => {
                 </div>
 
                 <div className="space-y-2 flex-row justify-between">
-                    {data.map((item, index) => (
-                        <React.Fragment key={index}>
-                            <div className="flex justify-between">
-                                <span>{item.label}</span>
-                                <span className='text-gray-500'>{item.value}</span>
-                            </div>
-                            {index !== data.length - 1 && <Divider />}
-                        </React.Fragment>
-                    ))}
+                    <div className="flex justify-between">
+                        <span>{t('overview.unresolvedTicket.featureRequest')}</span>
+                        <span className='text-gray-500'>{data.totalFeatureRequest}</span>
+                    </div>
+                    <Divider/>
+                    <div className="flex justify-between">
+                        <span>{t('overview.unresolvedTicket.awaitingCustomerResponse')}</span>
+                        <span className='text-gray-500'>{data.awaitingCustomerResponse}</span>
+                    </div>
+                    <Divider/>
+                    <div className="flex justify-between">
+                        <span>{t('overview.unresolvedTicket.awaitingDeveloperFix')}</span>
+                        <span className='text-gray-500'>{data.awaitingDeveloperFix}</span>
+                    </div>
+                    <Divider/>
+                    <div className="flex justify-between">
+                        <span>{t('overview.unresolvedTicket.pending')}</span>
+                        <span className='text-gray-500'>{data.pending}</span>
+                    </div>
+                    <Divider/>
                 </div>
             </div>
         </div>

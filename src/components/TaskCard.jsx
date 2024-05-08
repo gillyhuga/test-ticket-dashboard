@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Divider from './Divider';
+import { useTranslation } from 'react-i18next';
 
-const TaskCard = ({ title, data }) => {
+const TaskCard = ({ data }) => {
+    const { t } = useTranslation();
     const getStatusBadge = (status) => {
         switch (status) {
         case 0:
@@ -21,10 +23,10 @@ const TaskCard = ({ title, data }) => {
             <div className="card-body">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h2 className="card-title">{title}</h2>
-                        <p className="text-sm mb-4 text-gray-500">Today</p>
+                        <h2 className="card-title">{t('overview.taskCard.title')} </h2>
+                        <p className="text-sm mb-4 text-gray-500">{t('overview.taskCard.subTitle')} </p>
                     </div>
-                    <a className="link link-hover text-primary font-medium">View all</a>
+                    <a className="link link-hover text-primary font-medium">{t('overview.taskCard.viewAll')}</a>
                 </div>
 
                 <div className="space-y-2 flex-row justify-between">
@@ -49,7 +51,6 @@ const TaskCard = ({ title, data }) => {
 };
 
 TaskCard.propTypes = {
-    title: PropTypes.string.isRequired,
     data: PropTypes.arrayOf(
         PropTypes.shape({
             title: PropTypes.string.isRequired,

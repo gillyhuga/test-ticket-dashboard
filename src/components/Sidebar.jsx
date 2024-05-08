@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { useTheme } from '../lib/context/ThemeContext';
-import { MdSpaceDashboard,MdAllInbox } from 'react-icons/md';
+import { MdSpaceDashboard, MdAllInbox } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../lib/context/AuthContext';
 
 const Sidebar = ({ children }) => {
     const { t } = useTranslation();
-    const { theme } = useTheme();
     const { user } = useAuth();
     const sidebarItems = [
         { key: 'overview', path: '/overview', label: t('sidebar.overview'), icon: <MdSpaceDashboard />, roles: ['admin'] },
@@ -24,10 +22,10 @@ const Sidebar = ({ children }) => {
             )}
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className={`menu p-4 w-60 min-h-full space-y-2 ${theme === 'dark' ? 'bg-slate-800' : 'bg-gray-100'}`} >
+                <ul className={'menu p-4 w-60 min-h-full space-y-2 bg-slate-800'} >
                     {sidebarItems.filter(item => item.roles.includes(user?.role)).map(item => (
                         <li key={item.path}>
-                            <NavLink to={item.path} className="text-sm font-medium">
+                            <NavLink to={item.path} className="text-sm text-white font-medium">
                                 {item.icon && <span className="mr-1">{item.icon}</span>}
                                 {item.label}
                             </NavLink>

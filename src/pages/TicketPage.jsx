@@ -3,6 +3,7 @@ import { FaFilter } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import {ticketData} from '../utils/static-data';
 import TicketTable from '../components/TicketTable';
+import { useTranslation } from 'react-i18next';
 
 const TicketPage = () => {
     const [data, setData] = useState([]);
@@ -11,6 +12,8 @@ const TicketPage = () => {
     const [itemsPerPage] = useState(5); 
     const [sortBy, setSortBy] = useState(null);
     const [sortDesc, setSortDesc] = useState(false);
+    const { t } = useTranslation();
+    
 
     useEffect(() => {
         const storedData = JSON.parse(localStorage.getItem('tickets'));
@@ -79,12 +82,12 @@ const TicketPage = () => {
 
     return (
         <div className="p-6">
-            <p className='text-3xl  font-semibold'>Tickets</p>
-            <div className="card bg-base-100 shadow-md my-6">
+            <p className='text-3xl font-semibold'>{t('ticket.title')}</p>
+            <div className="card bg-base-100 shadow-md my-6 ">
                 <div className="card-body">
                     <div className='flex justify-between'>
-                        <h2 className="card-title">All Tickets</h2>
-                        <a href="/ticket/create" className="btn">Create Ticket</a>
+                        <h2 className="card-title">{t('ticket.cardTitle')}</h2>
+                        <a href="/ticket/create" className="btn btn-primary">{t('ticket.createTitle')}</a>
                     </div>
                     <div className="dropdown dropdown-end flex justify-end">
                         <div tabIndex={0} role="button" className="btn btn-sm m-1"><FaFilter/></div>

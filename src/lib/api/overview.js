@@ -29,3 +29,13 @@ export const getTasks = async () => {
         return null;
     }
 };
+
+export const getTotalUnresolvedTicket = async () => {
+    try {
+        const response = await axios.get('https://mocki.io/v1/26bfe7a0-362e-4b89-896f-8fe4a9f16d0c');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return null;
+    }
+};

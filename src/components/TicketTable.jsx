@@ -51,10 +51,10 @@ const TicketTable = ({ handleStatusChange, currentPage, itemsPerPage, handleSort
                                 </div>
                             </td>
                             <td className="px-4 py-2">
-                                <button className="btn btn-sm btn-square bg-green-500 text-white" onClick={() => handleStatusChange(index, 1)}>
+                                <button className="btn mx-1 btn-sm btn-square bg-green-500 text-white" onClick={() => handleStatusChange(index, 1)}>
                                     <FaCheck />
                                 </button>
-                                <button className="btn btn-sm btn-square btn-outline bg-red-500 text-white" onClick={() => handleStatusChange(index, 2)}>
+                                <button className="btn mx-1 btn-sm btn-square btn-outline bg-red-500 text-white" onClick={() => handleStatusChange(index, 2)}>
                                     <FaTimes />
                                 </button>
                             </td>

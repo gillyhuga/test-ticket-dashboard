@@ -3,7 +3,6 @@ import App from './App.jsx';
 import './styles/index.css';
 import { Toaster } from 'react-hot-toast';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from './lib/context/ThemeContext.jsx';
 import { AuthProvider } from './lib/context/AuthContext.jsx';
 import './i18n.js';
 
@@ -13,10 +12,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             position="top-center"
             reverseOrder={false}
         />
-        <ThemeProvider>
-            <AuthProvider>
-                <App />
-            </AuthProvider>
-        </ThemeProvider>
+        <AuthProvider>
+            <App />
+        </AuthProvider>
     </BrowserRouter>,
 );

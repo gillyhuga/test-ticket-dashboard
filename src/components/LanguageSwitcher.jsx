@@ -30,7 +30,7 @@ const LanguageSwitcher = () => {
     );
 
     return (
-        <div className="font-light mt-5 text-center">
+        <div className="font-light px-4 text-center">
             {renderLanguageLink('id', 'ID')}
             {' | '}
             {renderLanguageLink('en', 'EN')}

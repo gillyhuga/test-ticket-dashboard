@@ -1,11 +1,61 @@
 {
-    "translation": {
-      "title": "Ticket Dashboard",
-      "pageLogin": {
-          "email": "Email",
-          "password": "Kata Sandi",
-          "login": "Masuk",
-          "passwordError":"Kata sandi harus terdiri dari minimal 8 karakter."
+  "translation": {
+    "title": "Dasbor Tiket",
+    "toast": {
+      "invalidCredentials": "Email atau kata sandi tidak valid",
+      "loginSuccesed": "Login berhasil"
+    },
+    "pageLogin": {
+      "email": "Email",
+      "password": "Kata Sandi",
+      "login": "Masuk",
+      "passwordError": "Kata sandi harus minimal 8 karakter."
+    },
+    "sidebar": {
+      "ticket": "Tiket",
+      "overview": "Ikhtisar"
+    },
+    "navbar": {
+      "logout": "Keluar"
+    },
+    "ticket": {
+      "title": "Tiket",
+      "cardTitle": "Semua Tiket",
+      "createTitle": "Buat Tiket"
+    },
+    "detailTicket": {
+      "title": "Detail Tiket"
+    },
+    "createTicket": {
+      "title": "Buat Tiket"
+    },
+    "overview": {
+      "title": "Ikhtisar",
+      "trendTitle": "Tren Hari Ini",
+      "taskCard": {
+        "title": "Tugas",
+        "subTitle": "Hari Ini",
+        "viewAll": "Lihat semua"
+      },
+      "statisticCard": {
+        "unresolved": "Belum Terselesaikan",
+        "overdue": "Terlambat",
+        "open": "Terbuka",
+        "onHold": "Ditangguhkan"
+      },
+      "statisticItem": {
+        "resolved": "Tuntas",
+        "received": "Diterima",
+        "averageFRS": "Waktu Respon Pertama Rata-rata",
+        "averageRT": "Waktu Respon Rata-rata",
+        "resolution": "Resolusi dengan SLA"
+      },
+      "unresolvedTicket": {
+        "featureRequest": "Menunggu Permintaan Fitur",
+        "awaitingCustomerResponse": "Menunggu Tanggapan Pelanggan",
+        "awaitingDeveloperFix": "Menunggu Perbaikan Pengembang",
+        "pending": "Tertunda"
       }
     }
   }
+}
