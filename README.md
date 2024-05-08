@@ -1,8 +1,45 @@
-# React + Vite
+<br />
+<p align="center">
+  <h1 align="center">
+  <a href="https://quizzopia.gillyhuga.com/">
+    Ticket Dasboard
+  </a>
+  </h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p>
 
-Currently, two official plugins are available:
+### Built With
+- [React.js ^18.2.0](https://react.dev/)
+- [Vite ^4.2.1](https://vitejs.dev/)
+- [Daisy UI ^4.10.5](https://daisyui.com/)
+- [Tailwind CSS ^3.4.3](https://tailwindcss.com/)
+- [react-i18next ^14.1.1](https://react.i18next.com/)
+- [react-apexcharts ^1.4.1](https://www.npmjs.com/package/react-apexcharts/)
+- [Vercel](https://vercel.com/)
+  
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
+- [Node >= 16.14.0](https://nodejs.org/en/)
+
+### Installation
+- Clone repository
+  ```
+     https://github.com/gillyhuga/test-ticket-dashboard.git
+  ```
+- Go to the project directory
+  ```
+     cd test-ticket-dashboard
+  ```
+
+- Install dependencies
+
+  ```
+     npm install
+  ```
+
+- Start the server
+  ```
+     npm run dev
+  ```
+- Open `http://localhost:5173` with your browser to see the result
