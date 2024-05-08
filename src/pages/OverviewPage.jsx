@@ -41,16 +41,10 @@ const OverviewPage = () => {
         { label: 'Pending', value: 281 },
     ];
 
-    // const tasksData = [
-    //     { title: 'Finish ticket update', status: 2, isDone: false },
-    //     { title: 'Create new ticket example', status: 0, isDone: false },
-    //     { title: 'Update ticket report', status: 1, isDone: true },
-    // ];
-
     if (loading) {
         return <div>Loading...</div>;
     }
-
+    
     return (
         <div className='p-6'>
             <p className='text-3xl font-semibold'>Overview</p>

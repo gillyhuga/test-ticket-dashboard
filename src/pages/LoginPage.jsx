@@ -32,7 +32,7 @@ const LoginPage = () => {
         const foundUser = data.users.find(user => user.email === formData.email && user.password === formData.password);
     
         if (foundUser) {
-            signIn({ email: foundUser.email, role: foundUser.role });
+            signIn({ email: foundUser.email, role: foundUser.role, name: foundUser.name });
             toast.success(t('toast.loginSuccesed'));
         } else {
             toast.error(t('toast.invalidCredentials'));
