@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        localStorage.clear('userData');
+        localStorage.removeItem('userData');
         setUser(null);
     };
 
@@ -39,8 +39,12 @@ export const AuthProvider = ({ children }) => {
         return user !== null;
     };
 
+    const getUserRole = () => {
+        return user?.role;
+    };
+
     return (
-        <AuthContext.Provider value={{ user, signIn, logout, isAuthenticated, loading }}>
+        <AuthContext.Provider value={{ user, signIn, logout, isAuthenticated,getUserRole, loading }}>
             {loading ? null : children}
         </AuthContext.Provider>
     );
